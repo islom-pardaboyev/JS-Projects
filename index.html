@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+.text-green{
+    color: green;
+}
+.text-red{
+    color: red;
+}
+</style>
+<body class="px-[40px]">
+    <div class="text-center">
+        <h1 class="text-red-600">Are you going to jog?</h1>
+        <form action="" class="form1 bg-[#F8F9FA]">
+            <div class="text-center yesOrNo mb-[1rem] text-[32px]">
+                <span class="yes">Yes</span>
+                <span>/</span>
+                <span class="no">No</span>
+            </div>
+            <div class="flex flex-col py-[10px] px-[30px] text-center">
+                <label for="" class="mb-[0.5rem]">Temperature</label>
+                <input type="number" class="inputTemp p-2" placeholder="30.0 C">
+            </div>
+            <div class="flex text-center">
+                <div class="flex w-full flex-col">
+                    <label for="">Is it raining</label>
+                    <input class="raining" type="checkbox">
+                </div>
+                <div class="flex w-full flex-col">
+                    <label for="">Do sport hall open</label>
+                    <input class="open" type="checkbox">
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        const elForm = document.querySelector(".form1")
+        const elInputTemp = document.querySelector(".inputTemp")
+        const elRainCheckbox = document.querySelector(".raining")
+        const elOpenCheckbox = document.querySelector(".open")
+
+        const elYesOrNo = document.querySelector(".yesOrNo")
+        const elYes = document.querySelector(".yes")
+        const elNo = document.querySelector(".no")
+
+        elForm.addEventListener('change', function () {
+            const temperature = +(elInputTemp.value)
+
+            elYes.classList.remove('text-green');
+            elNo.classList.remove('text-red');
+
+            if (temperature >= 5 && temperature <= 30) {
+                elYes.classList.add('text-green');
+            } else{
+                elNo.classList.add("text-red")
+            }
+            if(elRainCheckbox.checked){
+                elNo.classList.add("text-red")
+                elYes.classList.remove("text-green")
+            }else if(elRainCheckbox.checked && elOpenCheckbox.checked){
+                elYes.classList.add("text-green")
+                elNo.classList.remove("text-red")
+            }else if (temperature < 5 && elOpenCheckbox.checked){
+                 elNo.classList.add('text-red');
+                 elYes.classList.remove('text-green');
+  }
+        })
+    </script>
+</body>
+</html>
