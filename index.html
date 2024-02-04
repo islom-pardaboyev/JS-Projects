@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Homeworks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <style>
 .text-green{
@@ -15,7 +16,7 @@
 </style>
 <body class="px-[40px]">
     <div class="text-center">
-        <h1 class="text-red-600">Are you going to jog?</h1>
+        <h1 class="text-red-600 text-[32px] mb-2">Are you going to jog?</h1>
         <form action="" class="form1 bg-[#F8F9FA]">
             <div class="text-center yesOrNo mb-[1rem] text-[32px]">
                 <span class="yes">Yes</span>
@@ -31,48 +32,49 @@
                     <label for="">Is it raining</label>
                     <input class="raining" type="checkbox">
                 </div>
-                <div class="flex w-full flex-col">
+                <div class="flex w-full mb-2 flex-col">
                     <label for="">Do sport hall open</label>
                     <input class="open" type="checkbox">
                 </div>
             </div>
         </form>
     </div>
+    <div class="text-center mt-5">
+    <h1 class="text-[32px] text-[#dc3545] mb-2">We goes First ?!</h1>
+    <form action="" class="form2">
+        <div class="bg-[#F8F9FA] p-[2rem] flex gap-[2rem] items-center justify-center mx-[40px]">
+            <label for="distance-input">Distance</label>
+            <input class="p-3 rounded-md" id="distance-input" type="number" required placeholder="100km">
+            <button class="bg-[#29A645] py-[10px] rounded-md px-[50px] text-white">Calculate</button>
+        </div>
+    </form>
+    <div class="grid grid-cols-12 gap-6 mt-3 text-center">
+            <div class="col-span-6 border py-3 px- flex flex-col">
+                <span><i class="text-[36px] text-[#14A2B8] fa-solid fa-person-walking"></i></span>
+                <p class="text-[#14A2B8] my-[0.5rem]">Walk</p>
+                <p class="text-[#28A745] walk-time">n Hours</p>
+            </div>
+            <div class="col-span-6 border py-3 px- flex flex-col">
+                <span><i class="text-[36px] text-[#14A2B8] fa-solid fa-bicycle"></i></span>
+                <p class="text-[#14A2B8] my-[0.5rem]">Bike</p>
+                <p class="text-[#28A745] bike-time">n Hours</p>
+            </div>
+            <div class="col-span-6 border py-3 px- flex flex-col">
+                <span><i class="text-[36px] text-[#14A2B8] fa-solid fa-car"></i></span>
+                <p class="text-[#14A2B8] my-[0.5rem]">Car</p>
+                <p class="text-[#28A745] car-time">n Hours</p>
+            </div>
+            <div class="col-span-6 border py-3 px- flex flex-col">
+                <span><i class="text-[36px] text-[#14A2B8] fa-solid fa-plane-up"></i></span>
+                <p class="text-[#14A2B8] my-[0.5rem]">Airplane</p>
+                <p class="text-[#28A745] airplane-time">n Hours</p>
+            </div>
+
+    </div>
+    </div>
 
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        const elForm = document.querySelector(".form1")
-        const elInputTemp = document.querySelector(".inputTemp")
-        const elRainCheckbox = document.querySelector(".raining")
-        const elOpenCheckbox = document.querySelector(".open")
-
-        const elYesOrNo = document.querySelector(".yesOrNo")
-        const elYes = document.querySelector(".yes")
-        const elNo = document.querySelector(".no")
-
-        elForm.addEventListener('change', function () {
-            const temperature = +(elInputTemp.value)
-
-            elYes.classList.remove('text-green');
-            elNo.classList.remove('text-red');
-
-            if (temperature >= 5 && temperature <= 30) {
-                elYes.classList.add('text-green');
-            } else{
-                elNo.classList.add("text-red")
-            }
-            if(elRainCheckbox.checked){
-                elNo.classList.add("text-red")
-                elYes.classList.remove("text-green")
-            }else if(elRainCheckbox.checked && elOpenCheckbox.checked){
-                elYes.classList.add("text-green")
-                elNo.classList.remove("text-red")
-            }else if (temperature < 5 && elOpenCheckbox.checked){
-                 elNo.classList.add('text-red');
-                 elYes.classList.remove('text-green');
-  }
-        })
-    </script>
+    <script src="index.js"></script>
 </body>
 </html>
